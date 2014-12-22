@@ -1,8 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
-
+## This script describes how to cache matrix inverse value in memory.
+## The inverse of matrix will be computed only at the first time.
+ 
+## The first function, is a list of function to maintain a matrix, including
+## set the value of the matrix
+## get the value of the matrix
+## set the value of the inverse
+## get the value of the inverse
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
   set <- function(y) {
@@ -10,7 +13,7 @@ makeCacheMatrix <- function(x = matrix()) {
     m <<- NULL
   }
   get <- function() x
-  setinverse <- function(mean) m <<- solve
+  setinverse <- function(solve) m <<- solve
   getinverse <- function() m
   list(set = set, get = get,
        setinverse = setinverse,
@@ -18,7 +21,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve computes the inverse of matrix, if the value has been in memory (cached), it will return 
+## the solution.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
